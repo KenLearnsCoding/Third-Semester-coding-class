@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Joey Chestnut",
+    "occupation": "Professional Eater",
+    "votedFor": "KanYeW",
+    "politcalAffiliation": "Church's Chicken",
+    "party": "democrat"
+  },
+  {
+    "name": "David Hasselhoff",
+    "occupation": "German Demi-God",
+    "votedFor": "KanYeW",
+    "politcalAffiliation": "Church of Baywatch",
+    "party": "republican"
+  },
+  {
+    "name": "Kimmy Kardashian",
+    "occupation": "Self Appointed Awesome Person",
+    "votedFor": "KanYeW",
+    "politcalAffiliation": "Shopping",
+    "party": "other"
+  },
+  {
+    "name": "Sarah Palin",
+    "occupation": "Alaskan Gubner",
+    "votedFor": "KanYeW",
+    "politcalAffiliation": "The Eagle",
+    "party": "republican"
+  },
+  {
+    "name": "Borat Sagdiyev",
+    "occupation": "Reporter",
+    "votedFor": "KanYeW",
+    "politcalAffiliation": "The Hawk",
+    "party": "democrat"
+  },
+  {
+    "name": "Vladdy P",
+    "occupation": "Intelligence Officer",
+    "votedFor": "KanYeW",
+    "politcalAffiliation": "His Own",
+    "party": "republican"
+  }
+]
