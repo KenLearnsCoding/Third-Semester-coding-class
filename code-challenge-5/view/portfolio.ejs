@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="style.css">
+        <title>
+            
+        </title>
+    </head>
+
+    <body>
+        <main>
+            <p>
+                <%= portfolio %>  
+            </p>
+            <!-- i will create a button with # to another page after press button -->
+            <a href="#" id="button" class="button">Go to Another Page</a>
+            <!-- the class will be call in the script below to do the chore in there -->
+            
+        </main>
+    </body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // get id name from the link element 
+            const linkButton = document.getElementById('button');
+        
+            // add a click event listener to the link
+            linkButton.addEventListener('click', function(event) {
+                // prevent the default behavior of the link
+                event.preventDefault();
+        
+                // set the new URL where you want to navigate
+                const newUrl = '/index.html'; // store the link file to the newUrl then push it to the href='#'
+        
+                // navigate to the new URL
+                window.location.href = newUrl;
+            });
+        });
+        
+    </script>
+    
+</html>
