@@ -24,15 +24,15 @@ let combineJsonFiles = async () => {
 let ChangeData = async () => {
     const dataOutput = await fs.readFile(targetFile, 'utf8');//read file
     const jsonObjectOutput = JSON.parse(dataOutput);//Change to js Object
-    //This code below is for replace the value with the key "votedFor".
-    //I found this code from document online to work with multiple object. 
-    //Its ez if i work with a single object in a single json file. 
+    //This code below is for replacing the value with the key "votedFor".
+    //I found this code from a document online to work with multiple objects. 
+    //Its ez if I work with a single object in a single JSON file. 
     await jsonObjectOutput.forEach((item) => {
         if (item.hasOwnProperty('votedFor')) {
           item.votedFor = 'KanYeW';
         }
     });
-    console.log(jsonObjectOutput);//as your recommendation, i use console to check the result of each small task
+    console.log(jsonObjectOutput);//as your recommendation, I use the console to check the result of each small task
       
     updatedJsonString = JSON.stringify(jsonObjectOutput, null, 2);//convert to string
     await fs.writeFile(targetFile, updatedJsonString, 'utf8');//paste data to the output json file. 
@@ -63,7 +63,7 @@ let AddKey = async () => {
 
 
 combineJsonFiles().then(() => {
-    //the output will give different result if i dont call this Addkey function before the ChangeData function. 
+    //the output will give a different result if I don't call this Addkey function before the ChangeData function. 
     return AddKey();
 }).then(() => {
     // Once combined, change the "votedFor" value
