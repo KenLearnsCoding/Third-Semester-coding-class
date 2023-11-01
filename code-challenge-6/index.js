@@ -41,7 +41,6 @@ async function run() {
     await breedsCollection.insertMany(breedData);
   
     //close the server
-    await client.close();
-    console.log('Disconnected from MongoDB');
+     client.close();
 }
 run()
