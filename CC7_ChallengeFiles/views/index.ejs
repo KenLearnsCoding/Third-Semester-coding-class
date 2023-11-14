@@ -1,0 +1,15 @@
+<!-- Include head and header partials here -->
+<%- include('partials/head.ejs', {title: Home}) %>
+<%- include('partials/header.ejs') %>
+<!-- Create a div that displays a random breed image and random fact using data being received from the server.js file -->
+<div class="#">
+
+    <h1>Random Dog Fact</h1>
+
+    <p><%= {randomBreedImage} %></p>
+    <p><%= { randomFact} %</p>
+</div>
+
+<!-- Include foot and footer partials here -->
+<%- foot('partials/footer.ejs') %>
+<%- include('partials/foot.ejs') %>
