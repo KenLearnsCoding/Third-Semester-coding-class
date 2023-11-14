@@ -41,13 +41,14 @@ function factRandomizer(facts) {
 app.get('/', async (req, res) => {
     // ----- Random Breed -----
     // Find all the breeds from the database and assign it to the breeds variable.
-    const breeds = await database.collections.breeds.find({}).toArray();
+    const breeds = await database.collections.breed.find({}).toArray();
 
     // Call the breedRandomizer function to get a random breed ID.
     const randomBreedID = breedRandomizer(breeds);
 
     // Use the random breed ID to get a random breed object from MongoDB
-    const randomBreed = await database.collections.breeds.findOne({ _id:database.ObjectId(randomBreedID)});
+    const randomBreed = await database.collections.breed.findOne({ _id:database.ObjectId(randomBreedID)});
+    
 
     // Console log the random object you have fetched before rendering it on the home page
     console.group(randomBreed);
@@ -60,7 +61,8 @@ app.get('/', async (req, res) => {
     const randomFactID = factRandomizer(facts);
 
     // Use the random breed ID to get a random breed object from MongoDB
-    const randomFact = await database.collections.breeds.findOne({ _id:database.ObjectId(randomFactID)});
+    const randomFact = await database.collections.facts.findOne({ _id: database.ObjectId(randomFactID) });
+
 
     // Console log the random object you have fetched before rendering it on the home page
     console.log(randomFact);
@@ -72,7 +74,7 @@ app.get('/', async (req, res) => {
 // Route to display all the breeds
 app.get('/breeds', async (req, res) => {
     // Find all the breeds from the database
-    const breeds = await database.collections.breeds.find({}).toArray();
+    const breeds = await database.collections.breed.find({}).toArray();
     
     // Render the breeds file in the cats folder under views and pass the breeds found to the template
     res.render('breeds', {breeds});
@@ -82,7 +84,7 @@ app.get('/breeds', async (req, res) => {
 // Route to display all the facts
 app.get('/facts', async (req, res) => {
     // Find all the facts from the database
-    const facts = await database.collections.breeds.find({}).toArray();
+    const facts = await database.collections.facts.find({}).toArray();
     
     // Render the facts file in the cats folder under views and pass the facts found to the template
     res.render('facts', {facts});
@@ -98,16 +100,16 @@ app.get('/breed/:breedId', async (req, res) => {
     const breedObjectId = database.ObjectId(breedId);
 
     // Find the breed object from MongoDB using the provided ID
-    const  breed = await database.collections.breeds.findOne({ _id: breedObjectId});
+    const breed = await database.collections.breed.findOne({ _id: breedObjectId});
 
     // Render the breed file in the cats folder under views and pass the breed found using the provided to the template
-    res.render('breed',  {breed});
+    res.render('breed', {breed});
 });
 
 // Route to display fact by ID
 app.get('/fact/:factId', async (req, res) => {
     // Get the factId parameter from the URL
-    const factId = red.params.factId;
+    const factId = req.params.factId;
 
     // Convert the ID from the URL into the proper ObjectId format expected by MongoDB
     const factObjectId = database.ObjectId(factId);

@@ -5,14 +5,13 @@
 <!-- Create a div that displays all the breed data (image, breed, country, origin, coat, pattern) using the ID provided in the URL. 
     This data should come from the server.js files that will fetch the required data from MongoDB -->
     <div>
-        <h1>Breed</h1>
-        <p><strong>Image:</strong> <%=%></p>
-        <p><strong>Breed:</strong> <%= breeds.breed %> </p>
-        <p><strong>Country:</strong> <%= breeds.origin %></p>
-        <p><strong>Origin:</strong> <%= breeds.coat %></p>
-        <p><strong>pattern:</strong>< <%= breeds.pattern %></p>
+        <img src="<%= breed.image %>" alt="<%= breed.breed %> Image">
+        <h1><%= breed.breed %></h1>
+        <p><strong>Country:</strong> <%= breed.country %></p>
+        <p><strong>Origin:</strong> <%= breed.origin %></p>
+        <p><strong>Coat:</strong> <%= breed.coat %></p>
+        <p><strong>Pattern:</strong> <%= breed.pattern %></p>
     </div>
-
 <!-- Include foot and footer partials here -->
 <%- include('partials/footer.ejs') %>
 <%- include('partials/foot.ejs') %>

@@ -2,11 +2,23 @@
 <%- include('partials/head.ejs', {title: 'Breed'}) %>
 <%- include('partials/header.ejs') %>
 
-<!-- Create divs that display all the breeds and their corresponding images from MongoDB. 
+<!-- Create div that display all the breeds and their corresponding images from MongoDB. 
     This data should come from the server.js files that will fetch the required data from MongoDB, -->
 
     <!-- Each div element should be wrapped with an anchor tag that redirects the user to that particular breed's detail route i.e. '/breed/:breedId'  by passing its ID in the URL -->
 
+    <div>
+        <% breeds.forEach(breed => { %>
+            <a href="/breed/<%= breeds._id %>">
+                <!-- Assuming you have an object called 'breed' with the following properties -->
+                <div>
+                    <img src="<%= breeds.image %>" alt="<%= breeds.breed %> Image">
+                    <h2><%= breed.breed %></h2>
+                    <!-- You can add more breed details if needed -->
+                </div>
+            </a>
+        <% }) %>
+    </div>
 
 <!-- Include foot and footer partials here -->
 <%- include('partials/footer.ejs') %>
