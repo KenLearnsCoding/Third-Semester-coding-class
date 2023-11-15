@@ -12,7 +12,7 @@ var database = null;
 
 async function setup() {
     // ENTER YOUR MONGODB CONNECTION LINK IN THE LINE BELOW
-    client = await new mongodb.MongoClient('mongodb+srv://catsdb:week9@catsdb.sunyqht.mongodb.net/?retryWrites=true&w=majority').connect();
+    client = await new mongodb.MongoClient("mongodb+srv://catsdb:n01404222@database.npb5sor.mongodb.net/?retryWrites=true&w=majority").connect();
 
     // Setup your database here as we did in the Week 9 Class Code
 
