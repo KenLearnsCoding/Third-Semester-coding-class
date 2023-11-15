@@ -1,20 +1,20 @@
-const { MongoClient } = require('mongodb');
-const fs = require('fs');
+const { MongoClient } = require("mongodb");
 const uri = "mongodb+srv://catsdb:n01404222@database.npb5sor.mongodb.net/?retryWrites=true&w=majority";
 const client = new MongoClient(uri);
+const fs = require('fs');
 
 async function run() {
     // Connect the client to the server	
-    // await client.connect();
-    // console.log('Connected to MongoDB');
+    await client.connect();
+    console.log('Connected to MongoDB');
    
     // Select the 'catsdb' database
     const dbName = 'catsdb';
     const db = client.db(dbName);
     
     // Read the JSON files and parse before pushing them to the mongodb collections
-    const jsonData_breeds = JSON.parse(fs.readFileSync('./cat_breeds.json'));
-    const jsonData_facts = JSON.parse(fs.readFileSync('./cat_facts.json'));
+    const jsonData_breeds = JSON.parse(fs.readFileSync('code-challenge-6/cat_breeds.json'));
+    const jsonData_facts = JSON.parse(fs.readFileSync('code-challenge-6/cat_facts.json'));
     
     // Access the 'facts' and 'breeds' collections
     const breedsCollection = db.collection("breeds");
