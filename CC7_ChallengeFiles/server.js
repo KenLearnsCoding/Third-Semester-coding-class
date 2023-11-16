@@ -98,11 +98,12 @@ app.get('/breed/:breedId', async (req, res) => {
     // Get the breedId parameter from the URL
     const breedId = req.params.breedId;
 
+
     // Convert the ID from the URL into the proper ObjectId format expected by MongoDB
-    const breedObjectId = database.ObjectId(breedId);
+    const breedObjectId = new database.ObjectId(breedId);
 
     // Find the breed object from MongoDB using the provided ID
-    const breed = await database.collections.breeds.findOne({ _id: breedObjectId});
+    const breed = await database.collections.breeds.findOne({ _id:breedObjectId});
 
     // Render the breed file in the cats folder under views and pass the breed found using the provided to the template
     res.render('cats/breed.ejs', {breed});
@@ -112,12 +113,14 @@ app.get('/breed/:breedId', async (req, res) => {
 app.get('/fact/:factId', async (req, res) => {
     // Get the factId parameter from the URL
     const factId = req.params.factId;
+    console.log(factId);
 
     // Convert the ID from the URL into the proper ObjectId format expected by MongoDB
-    const factObjectId = database.ObjectId(factId);
+    //i get error when i didnt put the "new" before database.ObjectId(factId). Can you explain to me why?
+    const factObjectId = new database.ObjectId(factId);
 
     // Find the fact object from MongoDB using the provided ID
-    const fact = await database.collections.facts.findOne({ _id: factObjectId});
+    const fact = await database.collections.facts.findOne({ _id:factObjectId});
 
     // Render the fact file in the cats folder under views and pass the fact found using the provided to the template
     res.render('cats/fact.ejs', {fact});

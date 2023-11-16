@@ -6,13 +6,13 @@
     This data should come from the server.js files that will fetch the required data from MongoDB -->
 
     <!-- Each list item should be wrapped with an anchor tag that redirects the user to that particular fact's detail route i.e. '/fact/:factId'  by passing its ID in the URL -->
+
     <div>
         <ul>
             <% facts.forEach(fact => { %>
                 <li>
                     <a href="/fact/<%= fact._id %>">
-                        <p><strong>Fact:</strong> <%= facts.fact %></p>
-                        <p><strong>Length:</strong> <%= facts.length %></p>
+                        <strong>Fact:</strong> <%= fact.fact %>
                     </a>
                 </li>
             <% }) %>
@@ -22,4 +22,3 @@
 <!-- Include foot and footer partials here -->
 <%- include('../partials/footer.ejs') %>
 <%- include('../partials/foot.ejs') %>
-```
