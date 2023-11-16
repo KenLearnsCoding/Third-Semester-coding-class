@@ -98,7 +98,6 @@ app.get('/breed/:breedId', async (req, res) => {
     // Get the breedId parameter from the URL
     const breedId = req.params.breedId;
 
-
     // Convert the ID from the URL into the proper ObjectId format expected by MongoDB
     const breedObjectId = new database.ObjectId(breedId);
 
