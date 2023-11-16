@@ -12,8 +12,8 @@ const app = express();
 app.use(bodyParser());
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'views')));
+app.use(express.static(path.join(__dirname, 'cats')));
 
-app.set('cats', path.join(__dirname, 'cats'));
 
 
 // Function to get a random ID from the breeds collection
@@ -80,7 +80,7 @@ app.get('/breeds', async (req, res) => {
     const breeds = await database.collections.breeds.find({}).toArray(); //all breeds' objs are saved in variable breeds as an array
     
     // Render the breeds file in the cats folder under views and pass the breeds found to the template
-    res.render('breeds', {breeds});
+    res.render('cats/breeds.ejs', {breeds});
 
 });
 
@@ -90,7 +90,7 @@ app.get('/facts', async (req, res) => {
     const facts = await database.collections.facts.find({}).toArray();// all facts' objs are saved in variable facts as an array
     
     // Render the facts file in the cats folder under views and pass the facts found to the template
-    res.render('facts', {facts}); 
+    res.render('cats/facts.ejs', {facts}); 
 });
 
 // Route to display breed by ID
@@ -105,7 +105,7 @@ app.get('/breed/:breedId', async (req, res) => {
     const breed = await database.collections.breeds.findOne({ _id: breedObjectId});
 
     // Render the breed file in the cats folder under views and pass the breed found using the provided to the template
-    res.render('breed', {breed});
+    res.render('cats/breed.ejs', {breed});
 });
 
 // Route to display fact by ID
@@ -120,7 +120,7 @@ app.get('/fact/:factId', async (req, res) => {
     const fact = await database.collections.facts.findOne({ _id: factObjectId});
 
     // Render the fact file in the cats folder under views and pass the fact found using the provided to the template
-    res.render('fact', {fact});
+    res.render('cats/fact.ejs', {fact});
 });
 
 app.listen(PORT, async () => {

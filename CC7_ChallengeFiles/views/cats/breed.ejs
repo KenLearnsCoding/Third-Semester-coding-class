@@ -1,6 +1,6 @@
 <!-- Include head and header partials here -->
-<%- include('partials/head.ejs', {title: 'Breed'}) %>
-<%- include('partials/header.ejs') %>
+<%- include('../partials/head.ejs', {title: 'Breed'}) %>
+<%- include('../partials/header.ejs') %>
 
 <!-- Create a div that displays all the breed data (image, breed, country, origin, coat, pattern) using the ID provided in the URL. 
     This data should come from the server.js files that will fetch the required data from MongoDB -->
@@ -13,6 +13,6 @@
         <p><strong>Pattern:</strong> <%= breed.pattern %></p>
     </div>
 <!-- Include foot and footer partials here -->
-<%- include('partials/footer.ejs') %>
-<%- include('partials/foot.ejs') %>
+<%- include('../partials/footer.ejs') %>
+<%- include('../partials/foot.ejs') %>
 ```
