@@ -1,5 +1,5 @@
 <!-- Include head and header partials here -->
-<%- include('partials/head.ejs', {title: 'Breed'}) %>
+<%- include('partials/head.ejs', {title: 'facts'}) %>
 <%- include('partials/header.ejs') %>
 
 <!-- Create an unordered list that display all the facts from MongoDB. 
@@ -10,7 +10,7 @@
         <ul>
             <% facts.forEach(fact => { %>
                 <li>
-                    <a href="/fact/<%= facts._id %>">
+                    <a href="/fact/<%= fact._id %>">
                         <p><strong>Fact:</strong> <%= facts.fact %></p>
                         <p><strong>Length:</strong> <%= facts.length %></p>
                     </a>

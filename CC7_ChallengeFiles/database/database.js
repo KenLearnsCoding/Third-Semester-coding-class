@@ -1,8 +1,8 @@
 const mongodb = require('mongodb');
-const ObjectId = mongodb.ObjectId;
+const ObjectId =  mongodb.ObjectId;
 
 var collections = {
-    breed: null,
+    breeds: null,
     facts: null
 
 };
@@ -17,7 +17,7 @@ async function setup() {
     // Setup your database here as we did in the Week 9 Class Code
 
     // Database setup
-    database = await client.db('database');
+    database = client.db('catsdb');
 
     // listCollections functions, lists all the functions. It has 2 parameters. First, a filter which we have left blank here. Second, we want just the names so we set the value for nameOnly to true.
     let listedCollections = await database.listCollections({}, { nameOnly: true }).toArray();     
