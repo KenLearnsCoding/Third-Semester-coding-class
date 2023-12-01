@@ -1,0 +1,36 @@
+<!-- Include the shared metadata and navigation bar components -->
+<%- include('partials/head.ejs', {page: "Home" }) %>
+<%- include('partials/header.ejs') %>
+<script src="/socket.io/socket.io.js"></script>
+
+<div class="container px-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <!-- Messages List -->
+            <ul id="messages">
+                <% locals.messages.forEach(message => { %>
+                    <li class="col-6 message 
+                        <% if (message.sender.toLowerCase() === locals.currentUser.toLowerCase()) { %>
+                            <%= 'messages-user-you ms-auto' %>
+                        <% } else { %>
+                            <%= 'messages-user-them' %>
+                        <% } %>">
+                        <p class="content"><%= message.content %></p>
+                        <span class="sender"><%= message.sender %></span>
+                    </li>
+                <% }); %>
+            </ul>
+            <p id="typingStatus"></p>
+            <!-- Submit Button -->
+            <div class="input-group mb-3">
+                <input id="newMessageInput" class="form-control" type="text" placeholder="Type new message" />
+                <button id="newMessageSendButton" disabled class="btn btn-outline-primary">Send</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/main.js"></script>
+<!-- Include the shared footer and end tags -->
+<%- include('partials/footer.ejs') %>
+<%- include('partials/foot.ejs') %>
