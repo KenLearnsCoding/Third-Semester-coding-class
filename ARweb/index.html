@@ -3,15 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>3D object website</title>
   <link rel="stylesheet" href="style.css">
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <script src="script.js"></script>
 </head>
 <body>
+  <!-- i have to modify the sample from internet that you gave to us, because this stage of assignment requires the hotspots. 
+       I have included what ever i could. I split 3 model-viewer for 3 3d-objects -->
   <div class="demo">
-    <span class="background">Background<br>is visible<br>through<br>transparent<br>objects.</span>
-    <model-viewer id="modelViewer" style="display: block;" src="assets/barrel_chair.glb" poster="assets/barrel_chair.webp" shadow-intensity="1" ar ar-modes="scene-viewer webxr quick-look" camera-controls auto-rotate>
+    <span class="background">Welcome<br>to my website<br>with<br>3 dimensional <br>objects.</span>
+    <model-viewer id="modelViewer1" style="display: block;" src="assets/barrel_chair.glb" poster="assets/barrel_chair.webp" shadow-intensity="1" ar ar-modes="scene-viewer webxr quick-look" camera-controls auto-rotate>
       <!-- Your existing model-viewer content here -->
       <button id="ar-failure">
         AR is not tracking!
@@ -23,26 +25,8 @@
         <div class="HotspotAnnotation">Cool Texture</div>
       </button>
       <button class="Hotspot" slot="hotspot-3" data-position="0.10721144093747526m 0.027428990849131862m 0.3994770711231708m" data-normal="-2.2735862779592368e-7m 0.9999999999999716m 7.305759690293217e-8m" data-visibility-attribute="visible">
-        <div class="HotspotAnnotation">Base</div>
+        <div class="HotspotAnnotation">Barrel Chair Hotspot 3</div>
       </button>
-      <div class="slider">
-        <div class="slides">
-          <button class="slide selected" onclick="switchModel('assets/barrel_chair.glb', 'assets/barrel_chair.webp')" style="background-image: url('assets/barrel_chair.webp');"></button>
-          <button class="slide" onclick="switchModel('assets/chair.glb', 'assets/chair.webp')" style="background-image: url('assets/chair.webp');"></button>
-        </div>
-      </div>
-    </model-viewer>
-
-    <model-viewer id="modelViewer2"  style="display: none;" src="chair.glb" ar ar-modes="scene-viewer webxr quick-look" camera-controls poster="poster.webp" shadow-intensity="1.73" auto-rotate>
-      <!-- Your existing model-viewer content here -->
-      <button class="Hotspot" slot="hotspot-2" data-position="0.03227875628294502m 1.6098149314595471m 0.6559302620700731m" data-normal="-0.17348879993444088m 0.08598967738786084m 0.9810746208520732m" data-visibility-attribute="visible">
-        <div class="HotspotAnnotation">Chair with a customized texture</div>
-      </button>
-      <button class="Hotspot" slot="hotspot-6" data-position="1.7304868614327353m 0.8139733842251318m -0.13373318422144143m" data-normal="0.005032420788479421m 0.1963393868999728m 0.9805230848341873m" data-visibility-attribute="visible">
-        <div class="HotspotAnnotation">Liquid background with Toronto label</div>
-      </button>
-      <button class="Hotspot" slot="hotspot-7" data-position="-0.21274087498510158m 0.04768214938022097m 1.3987126664840268m" data-normal="-0.28732429135797316m 0.6619407482193961m 0.6922999331520874m" data-visibility-attribute="visible">
-        <div class="HotspotAnnotation">Base</div>
       <div class="progress-bar hide" slot="progress-bar">
         <div class="update-bar"></div>
       </div>
@@ -54,11 +38,68 @@
       </div>
       <div class="slider">
         <div class="slides">
-          <button class="slide selected" onclick="switchModel('assets/barrel_chair.glb', 'assets/barrel_chair.webp', 'modelViewer2')" style="background-image: url('assets/barrel_chair.webp');"></button>
-          <button class="slide" onclick="switchModel('assets/chair.glb', 'assets/chair.webp', 'modelViewer2')" style="background-image: url('assets/chair.webp');"></button>
+          <button class="slide" onclick="switchModel('assets/barrel_chair.glb', 'assets/barrel_chair.webp', event)" style="background-image: url('assets/barrel_chair.webp');"></button>
+          <button class="slide" onclick="switchModel('assets/chair.glb', 'assets/chair.webp', event)" style="background-image: url('assets/chair.webp');"></button>
+          <button class="slide" onclick="switchModel('assets/shelf.glb', 'assets/shelf.webp', event)" style="background-image: url('assets/shelf.webp');"></button>
         </div>
       </div>
     </model-viewer>
+
+    <model-viewer id="modelViewer2" style="display: none;" src="assets/chair.glb" ar ar-modes="scene-viewer webxr quick-look" camera-controls poster="poster.webp" shadow-intensity="1.73" auto-rotate>
+      <!-- Your existing model-viewer content here -->
+      <button class="Hotspot" slot="hotspot-2" data-position="0.03227875628294502m 1.6098149314595471m 0.6559302620700731m" data-normal="-0.17348879993444088m 0.08598967738786084m 0.9810746208520732m" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">Chair with a customized texture </div>
+      </button><button class="Hotspot" slot="hotspot-6" data-position="1.7304868614327353m 0.8139733842251318m -0.13373318422144143m" data-normal="0.005032420788479421m 0.1963393868999728m 0.9805230848341873m" data-visibility-attribute="visible">
+          <div class="HotspotAnnotation"> Toronto label background</div>
+      </button><button class="Hotspot" slot="hotspot-7" data-position="-0.21274087498510158m 0.04768214938022097m 1.3987126664840268m" data-normal="-0.28732429135797316m 0.6619407482193961m 0.6922999331520874m" data-visibility-attribute="visible">
+          <div class="HotspotAnnotation">Base</div>
+      </button>
+      <div class="progress-bar hide" slot="progress-bar">
+          <div class="update-bar"></div>
+      </div>
+      <button slot="ar-button" id="ar-button">
+          View in your space
+      </button>
+      <div id="ar-prompt">
+          <img src="https://modelviewer.dev/shared-assets/icons/hand.png">
+      </div>
+      <div class="slider">
+        <div class="slides">
+          <button class="slide" onclick="switchModel('assets/barrel_chair.glb', 'assets/barrel_chair.webp', event)" style="background-image: url('assets/barrel_chair.webp');"></button>
+          <button class="slide" onclick="switchModel('assets/chair.glb', 'assets/chair.webp', event)" style="background-image: url('assets/chair.webp');"></button>
+          <button class="slide" onclick="switchModel('assets/shelf.glb', 'assets/shelf.webp', event)" style="background-image: url('assets/shelf.webp');"></button>
+        </div>
+      </div>
+    </model-viewer>
+
+    <model-viewer id="modelViewer3" style="display: none;" src="assets/shelf.glb" ar ar-modes="scene-viewer webxr quick-look" camera-controls poster="assets/shelf.webp" shadow-intensity="1" auto-rotate>
+      <button class="Hotspot" slot="hotspot-1" data-position="0.34999976080189477m 0.30060339081419635m 0.014761617513958325m" data-normal="0.999999999999083m -0.0000013542681019392864m 4.951594689828198e-14m" data-visibility-attribute="visible">
+          <div class="HotspotAnnotation">Logo</div>
+      </button><button class="Hotspot" slot="hotspot-3" data-position="-0.3126666380447507m 0.3673835407545395m 0.10573700861945837m" data-normal="-4.9432680171435095e-14m -3.0030550061849113e-24m 1m" data-visibility-attribute="visible">
+          <div class="HotspotAnnotation">Shelf</div>
+      </button><button class="Hotspot" slot="hotspot-4" data-position="-0.004594027070493223m 0.04633671654052729m 0.11135239766446403m" data-normal="-4.9460435747050724e-14m -5.133952065136549e-24m 1m" data-visibility-attribute="visible">
+          <div class="HotspotAnnotation">Base</div>
+      </button>
+      <div class="progress-bar hide" slot="progress-bar">
+          <div class="update-bar"></div>
+      </div>
+      <button slot="ar-button" id="ar-button">
+          View in your space
+      </button>
+      <div id="ar-prompt">
+          <img src="https://modelviewer.dev/shared-assets/icons/hand.png">
+      </div>
+      <div class="slider">
+        <div class="slides">
+          <button class="slide" onclick="switchModel('assets/barrel_chair.glb', 'assets/barrel_chair.webp', event)" style="background-image: url('assets/barrel_chair.webp');"></button>
+          <button class="slide" onclick="switchModel('assets/chair.glb', 'assets/chair.webp', event)" style="background-image: url('assets/chair.webp');"></button>
+          <button class="slide" onclick="switchModel('assets/shelf.glb', 'assets/shelf.webp', event)" style="background-image: url('assets/shelf.webp');"></button>
+        </div>
+      </div>
+      
+  </model-viewer>
+  
   </div>
+
 </body>
 </html>
