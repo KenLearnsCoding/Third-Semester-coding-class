@@ -67,7 +67,7 @@ function AuthRouter(database) {
     // Routes for Register and Login
     router.get('/register', (req, res) => {
         const style = "../css/register.css";
-        res.render('auth/register.ejs', {errorMessage: null, style: style });
+        res.render('auth/register', {errorMessage: null });
     });
     
     router.get('/login', (req, res) => {
@@ -79,21 +79,21 @@ function AuthRouter(database) {
     // i tried to use diff way from this sha 256, but its interesting when i test on mongodb collection.
     // Therefore i keep the password hash and salt in the database.
     router.post('/register', async (req, res) => {
+        const data = req.body;
+        const imageUrl = data.url;
             try {
-                const data = req.body;
-                const imageUrl = data.url;
-        
+                
                 // Validate the image URL
                 const response = await fetch(imageUrl);
                 if (!response.ok) {
                     console.log("Image URL is invalid");
-                    res.render('auth/register.ejs', { error: "There was an issue checking the URL" });
+                    res.render('auth/register', { errorMessage: "There was an issue checking the URL" });
                     return;
                 }
         
                 // Validate other form fields
                 if (Object.keys(data).length <= 0 || (!data.firstname || !data.lastname || !data.email || !data.password || !data.username)) {
-                    res.render('auth/register.ejs', { error: "Please enter all fields" });
+                    res.render('auth/register', { error: "Please enter all fields" });
                     return;
                 }
         
@@ -120,17 +120,21 @@ function AuthRouter(database) {
                         id: user.insertedId.toString(),
                         username: data.username
                     }, () => {
+                        console.log('User logged in:', req.user); // Log the user information
                         resolve();
                     });
                 });
         
-                // Redirect to a success page or handle accordingly
                 res.redirect('/');
             } catch (error) {
                 // Handle errors, for example, render an error page
                 console.error('Error during registration:', error);
-                return res.render('auth/register.ejs', { errorMessage: 'An error occurred during registration.' });
+                return res.render('auth/register', { errorMessage: 'An error occurred during registration.' });
             }
+    });
+
+    router.get('/', (req, res) => {
+        res.render('partials/navigation', { user: req.user });
     });
 
     router.post('/login', (req, res, next) => {
@@ -146,6 +150,7 @@ function AuthRouter(database) {
             res.redirect('/');
         })(req, res, next);
     });
+
 
     // Logout Route
     router.get('/logout', (req, res, next) => {

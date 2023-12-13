@@ -87,9 +87,10 @@ nav .logo {
     font-family: 'Poppins', sans-serif;
     color: white;
     padding: 10px;
+    width: auto;
 }
 
-#login, #signup {
+.login, .signup {
     display: flex;
     height: 50px;
     width: auto;
@@ -105,11 +106,31 @@ nav .logo {
     padding: 10px;
 }
 
-#login:hover, #signup:hover {
+
+
+.login:hover, .signup:hover {
     border-color: rgb(255, 255, 255);
 }
 
+.profile {
+    display: flex;
+    height: 50px;
+    width: auto;
+    border-radius: 10px;
+    background-color: #39393A;
+    border: 0.16em solid rgba(255, 255, 255, 0);
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding: 2px;
+    transition: all 0.2s;
+    margin: 5px;
+    padding: 10px;
+}
 
+.profile:hover {
+    border-color: rgb(255, 255, 255);
+}
 
 
 footer {

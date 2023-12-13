@@ -67,7 +67,7 @@ async function setupServer() {
 
     // The next 2 lines are for the authentication. 
     app.use('/', AuthRouter(database));
-    app.use('/article', PinsRouter(database));
+    app.use('/', PinsRouter(database));
 
     app.listen(PORT, () => {
         console.log(`Server Started on port ${PORT}`);
