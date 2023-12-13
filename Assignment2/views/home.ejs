@@ -1,0 +1,125 @@
+<%- include('partials/head.ejs', {title:"Home", style: style}) %>
+<%- include('partials/header.ejs') %>
+
+<section>
+    <div class="container">
+        <div class="first-content">
+            <div class="headTitle">
+                <h1>Buy, Sell & Trade <br>Crypto In Canada</h1>
+                <p>Join the world's most secured crypto exchange</p>
+                <a href="#">Get Started</a>
+                <!-- give link path -->
+            </div>
+            <!-- video content -->
+                <video id="my-video" controls autoplay loop>
+                    <source src="./assets/video/video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            <!-- end of video content -->   
+        </div>
+        
+        <div class="How-It-Works">
+            <h2>Crypto Trading For Everyone</h1>
+            <p>TheMoon was built to simplify cryptocurrency trading. Beginners can quickly buy and sell 30+ digital assets on our intuitive platform, while experienced or professional traders can take advantage of our advanced features and trading tools. </p>
+            <img src="#" alt=""> 
+            <!-- link the path -->
+        </div>
+        <div class="price-chart">
+            <h1>Price Chart</h1>
+            <p>View real-time price data and comprehensive charts on all tokens.</p>
+            <img src="#" alt=""> 
+            <!-- TradingView Widget BEGIN -->
+    <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
+        {
+        "symbols": [
+        [
+            "BINANCE:BTCUSDT|1D"
+        ],
+        [
+            "BITSTAMP:ETHUSD|1D"
+        ],
+        [
+            "BINANCE:DOGEUSDT|1D"
+        ],
+        [
+            "BINANCE:XRPUSDT|1D"
+        ],
+        [
+            "BINANCE:SHIBUSDT|1D"
+        ],
+        [
+            "BINANCE:LTCUSDT|1D"
+        ]
+        ],
+        "chartOnly": false,
+        "width": 1200,
+        "height": 600,
+        "locale": "en",
+        "colorTheme": "dark",
+        "autosize": false,
+        "showVolume": false,
+        "showMA": false,
+        "hideDateRanges": false,
+        "hideMarketStatus": false,
+        "hideSymbolLogo": false,
+        "scalePosition": "right",
+        "scaleMode": "Normal",
+        "fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
+        "fontSize": "10",
+        "noTimeScale": false,
+        "valuesTracking": "1",
+        "changeMode": "price-and-percent",
+        "chartType": "candlesticks",
+        "maLineColor": "#2962FF",
+        "maLineWidth": 1,
+        "maLength": 9,
+        "gridLineColor": "rgba(0, 0, 0, 0.64)",
+        "backgroundColor": "rgba(0, 0, 0, 1)",
+        "lineType": 0,
+        "dateRanges": [
+        "1d|1",
+        "1m|30",
+        "3m|60",
+        "12m|1D",
+        "60m|1W",
+        "all|1M"
+        ],
+        "upColor": "#22ab94",
+        "downColor": "#f7525f",
+        "borderUpColor": "#22ab94",
+        "borderDownColor": "#f7525f",
+        "wickUpColor": "#22ab94",
+        "wickDownColor": "#f7525f"
+    }
+        </script>
+    </div>
+    <!-- TradingView Widget END -->
+        </div>
+        <div class="introduction">
+            <!-- give link -->
+
+            <img src="./assets/pics/Layer 1.png" alt="crypto tool">
+            <div class="introduction-text">
+                <h2> Powerful Crypto Trading Tools </h2>
+                <br>
+                <p> Start building your crypto portfolio on Canada’s most secure trading platform. TheMoon gives you easy access to your digital assets, plus reports that show your trading activity and portfolio growth on a daily, monthly, or yearly basis.
+                    <br>
+                    <br>
+                    You can even set up recurring buys on assets like Bitcoin, Ethereum, and dozens of other coins so you can invest in cryptocurrency on your own schedule. 
+                </p>
+            </div>
+        </div>
+        <div class="hint">
+            <h2>Here to help, day or night.</h2>
+            <p> Our team of knowledgeable customer support representatives are standing by 24/7 to answer any questions that you may have.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Path: files/partials/footer.ejs -->
+<%- include('partials/footer.ejs') %>
+
+</body>
+</html>

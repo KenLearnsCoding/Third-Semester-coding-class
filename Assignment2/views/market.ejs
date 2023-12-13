@@ -1,0 +1,29 @@
+<%- include('partials/head.ejs', {title:"Market",  style: style}) %>
+<%- include('partials/header.ejs') %>
+
+<!-- connect trading view API to server.js and import price -->
+
+<div class="container">
+        <h1>Market Overview</h1>
+        <!-- find some sample to make a table for price list -->
+
+        <!-- TradingView Widget BEGIN -->
+        <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
+            {
+            "width": 1200,
+            "height": 1000,
+            "defaultColumn": "overview",
+            "screener_type": "crypto_mkt",
+            "displayCurrency": "BTC",
+            "colorTheme": "dark",
+            "locale": "en"
+        }
+            </script>
+        </div>
+        <!-- TradingView Widget END -->
+        
+</div>
+
+<%- include('partials/footer.ejs') %>

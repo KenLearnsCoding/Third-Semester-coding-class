@@ -1,0 +1,249 @@
+:root {
+    --blanchedalmond: rgb(221, 113, 67);
+    --white: white;
+    --grey: #f5f5f5;
+    --black1: #111;
+    --dark-purple: #4d3b8f;
+    --light-purple: #8378e1;
+    --light-blue: #8ecae6;
+    --dark-blue: #4682b4;
+    --dark-orange: #d8765b;
+}
+
+.container {
+    padding: 5px;
+    height: auto;
+    width: 100%;
+    display: flex;
+    margin-bottom: 50px;
+}
+
+.sidebar {
+    height: 350px;
+    width: 250px;
+    z-index: 1;
+    background-color: var(--dark-purple);
+    overflow-x: hidden;
+    padding-top: 20px;
+    border-radius: 10px;
+    transition: 0.2s;
+    margin-top: 10px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    position: absolute;
+    width: 30%;
+}
+
+.sidebar ul li {
+    font-size: 20px;
+    width: 250px;
+    margin-left: 20px;
+    list-style: none;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+
+.sidebar ul li.focused a {
+    background: var(--dark-orange);
+    color: var(--white);
+    cursor: pointer;
+}
+
+.sidebar ul li a {
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: var(--white);
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.sidebar ul li:hover a,
+.sidebar ul li.hovered a {
+    color: #080a0b;
+}
+
+.sidebar ul li a .icon {
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 80px;
+    text-align: center;
+}
+
+.sidebar ul li a .icon ion-icon {
+    font-size: 1.75em;
+}
+
+.sidebar ul li a .title {
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    font-weight: 600;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+}
+
+.sidebar ul li:hover a::before,
+.sidebar ul li.hovered a::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    background: transparent;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.sidebar ul li:hover a::after,
+.sidebar ul li.hovered a::after {
+    content: '';
+    position: absolute;
+    background: transparent;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.portfolio {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height: 80%;
+    border: 2px solid var(--black1);
+    border-radius: 10px;
+    transition: 0.2s;
+    margin: 10px auto;
+    background-color: #2f2f2f;
+    padding: 40px;
+}
+
+.card_top {
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    width: 350px;
+}
+
+.card_title {
+    font-size: 16px;
+    color: var(--white);
+    justify-content: space-between;
+    display: flex;
+}
+
+.card {
+    background-color: var(--grey);
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 100px;
+    border-radius: 5px;
+    transition: 0.2s;
+    margin-top: 5px;
+}
+
+.card span {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.title_name {
+    color: #9d9a9a;
+    font-size: 16px;
+}
+
+.total_value {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+
+.coin_portfolio {
+    display: flex;
+    margin-top: 10px;
+    height: auto;
+    width: auto;
+    border: #080a0b 1px solid;
+    border-radius: 10px;
+    background-color: #111;
+}
+
+.coin_portfolio .table {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    padding: 20px;
+}
+
+.coin_portfolio thead {
+    display: flex;
+    justify-content: space-between;
+}
+
+.coin_portfolio .table tr {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 40px;
+    color: white;
+    align-items: center;
+}
+
+.coin_portfolio .table thead tr th {
+    display: flex;
+    color: white;
+    border-bottom: 2px solid #d8765b;
+    border-top: 2px solid  #d8765b;
+    align-items: center;
+    text-align: center;
+    width: 150px;
+    
+}
+
+.coin_portfolio .table tbody tr th,
+.coin_portfolio .table tbody tr td {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    width: 150px;
+    justify-content: space-between;
+}
+
+.order {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    height: 300px;
+    width: auto;
+    border: #080a0b 1px solid;
+    border-radius: 10px;
+    background-color: #111;
+    color: white;
+    padding: 30px;
+}
+
+.announcement {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    height: 300px;
+    width: auto;
+    border: #e2e2e2 1px solid;
+    border-radius: 10px;
+    background-color: #111;
+    color: white;
+    padding: 30px;
+    text-align: center;
+    justify-content: center;
+}

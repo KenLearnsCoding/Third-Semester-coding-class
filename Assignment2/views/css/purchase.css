@@ -1,0 +1,192 @@
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px 0;
+    padding: 20px 0;
+}
+
+.purchase {
+    width: 90%;
+    margin-bottom: 10%;
+    border-radius: 5px;
+    display: flex;
+    justify-items: space-around ;
+    height: 60%;
+}
+
+.buy_infor {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin: 40px;
+    padding: 10px;
+}
+
+.buy_infor h1 {
+    font-size: 62px;
+    font-weight: 900;
+    margin-bottom: 90px;
+    color: #fff;
+}
+
+.icon_payment {
+    display: flex;  
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+.icon_payment img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+
+.buy_section {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 40px;
+    padding: 10px;
+    align-items: end;
+}
+
+#option-coin {
+    width: 30%;
+    height: 5%;
+    margin-bottom: 20px;
+    align-items: center;
+    outline: none;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#buy_sell{
+    width: 30%;
+    height: 5%;
+    margin-bottom: 20px;
+    align-items: center;
+    outline: none;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#buy_box {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: column ;
+    justify-content: space-between;
+    row-gap: 20px;
+    margin: 20px 0;
+    align-items: end;
+}
+
+#buy_with_CAD_amount {
+    width: 100%;
+    height: 107px;
+    display: flex;
+    justify-content: space-around;
+    border: 2px solid #97c2e8; 
+    border-radius: 10px;
+    transition: border-color 0.3s ease; 
+    text-align: center;
+}
+
+.buy_section input[type="number"] {
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    align-items:baseline;
+}
+
+#buy_with_CAD_amount:focus-within, 
+#buy_with_CAD_amount:hover {
+    border-color: #0c0c0c; /* Change form border color when input is focused or has content */
+}
+
+
+#buy_with_CAD_amount input {
+    width: 50%;
+    height: 103px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    align-items: center;
+    outline: none; 
+}
+
+.receive-amount {
+    width: 50%;
+    height: 103px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 0;
+    background-color: rgb(90, 201, 151);
+    border-top-right-radius: 9px;
+    border-bottom-right-radius: 9px;
+}
+
+.main_number {
+    font-size: 30px;
+    font-weight: 900;
+    color: #fff;
+}
+
+.bn1 {
+    width: 100%;
+    height: 48px;
+    display: inline-block;
+    padding: 0.6em 1.7em;
+    border: 0.1em solid #ffffff;
+    margin: 0 0.3em 0.3em 0;
+    border-radius: 9px;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    color: #97c2e8;
+    text-align: center;
+    transition: all 0.2s;
+    background-color: white;
+    cursor: pointer;
+  }
+  
+
+/* Styles for Buy button when it is hovered */
+.bn1.buy:hover {
+    background-color: white;
+    border-color: #000000;
+    border: 2px solid #000000;
+    color: rgb(6, 113, 77);
+    /* Add any other styles you want to apply on hover for Buy */
+}
+
+/* Styles for Sell button when it is hovered */
+.bn1.sell:hover {
+    background-color: white;
+    border-color: #000000;
+    border: 2px solid #000000;
+    color: red;
+    /* Add any other styles you want to apply on hover for Sell */
+}
+
+
+
+#sell_box {
+    display: none;
+    width: 100%;
+    height: 30%;
+    flex-direction: column ;
+    justify-content: space-between;
+    row-gap: 20px;
+    margin: 20px 0;
+    align-items: end;
+}
+

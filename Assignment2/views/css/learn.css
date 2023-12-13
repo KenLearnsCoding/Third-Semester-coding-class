@@ -1,0 +1,147 @@
+
+.container {
+    height: 450vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container .background {
+    width: 100%;
+    object-fit: cover;
+    background-color: #2B3139;
+    color: #ffffff;
+    display: flex;
+    height: 500px;
+    padding: 50px;
+    align-items: center;
+}
+
+.background h1 {
+    width: 80%;
+    height: 50%;
+    font-size: 56px;
+}
+
+.background img {
+    width: 70%;
+    height: 70%;
+}
+
+.content {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px ;
+    padding-left: 50px ;
+    margin-top: 80px;
+}
+
+.coin_infor {
+    width: 70%;
+    height: 350vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position:absolute;
+    margin-top: 450px ;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.coin {
+    width: 90%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border: 2px solid #000000;
+    border-radius: 20px;
+    margin-top:5%;
+}
+
+.card {
+    width: 400px;
+    height: 200px;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+}
+
+.bitcoin_img {
+    width: 100px;
+    height: 100px;
+}
+
+.doge_img {
+    width: 100px;
+    height: 100px;
+}
+
+
+.what_about {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 50px;
+    justify-content: space-between;
+    padding-bottom: 20px;
+
+}
+
+.history {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 10px ;
+    margin-top: 30px;
+    color: coral;
+}
+
+.history .wrap {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.what_about button {
+    width: 40%;
+    height: 50px;
+    border-radius: 5px;
+    background-color: rgb(11, 13, 113);
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0);
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding: 2px;
+    transition: all 0.2s;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-block;
+}
+
+.what_about button:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgb(18, 137, 68)
+}
+
+.what_about a {
+    font-size: 13.33px;
+}
+

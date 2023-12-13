@@ -1,0 +1,141 @@
+<%- include('partials/head.ejs', {title:"Buy Crypto", style: style}) %>
+<%- include('partials/header.ejs') %>
+
+<div class="container">
+    <div class="purchase">
+        <div class="buy_infor">
+            <h1>Buy or Sell <br> Crypto</h1>
+            <!-- give css class name -->
+            <!-- give the api call here for the price -->
+            <p class="#">Various payment methods available</p>
+            <p>Supported Payment Methods</p>
+            <div class="icon_payment">
+                <img src="./assets/pics/visa.png" >
+                <img src="./assets/pics/masterCard.png" >
+                <img src="./assets/pics/apple.png" >
+                <img src="./assets/pics/google.png" >
+                <img src="./assets/pics/paypal.png" alt="">
+            </div>
+        </div>
+        <div class="buy_section">
+                <!-- make list here -->
+                <select name="#" id="option-coin">
+                    <option value="#">Select Coin</option>
+                    <option value="#">Bitcoin </option>
+                    <option value="#">Ethereum</option>
+                    <option value="#">Dogecoin</option>
+                    <option value="#">Solona</option>
+                    <option value="#">ChainLink</option>
+                </select>
+                <select name="#" id="buy_sell">
+                    <option value="#">
+                        Select Buy/Sell
+                    </option>
+                    <option value="buy">Buy</option>
+                    <option value="sell" >Sell</option>
+                </select>
+                <div id="buy_box" >
+                    <!-- give css and js items to select menu -->
+                    <form action="#" id="buy_with_CAD_amount">
+                        <input type="number" placeholder="Enter CAD Amount">
+                        <!-- give js function to this -->
+                        <div  class="receive-amount">
+                            <p>Receive</p>
+                            <p class="main_number"></p>
+                        </div>
+                    </form>
+                    <button class="bn1 buy">Buy</button>
+                        <!-- give js function to this -->
+                        <!-- give js function to this -->
+                </div>
+    
+                <div id="sell_box">
+                    <form action="type" id="buy_with_CAD_amount">
+                        <input type="number" placeholder="Enter Coin">
+                        <!-- give js function to this -->
+                        <div  class="receive-amount">
+                            <p>Receive</p>
+                            <p class="main_number">0 <%= totalBuy %></p>
+                        </div>
+                    </form>
+                    <button class="bn1 sell">Sell</button>
+                        <!-- give js function to this -->
+                        <!-- give js function to this -->
+                </div>
+        </div>
+    </div>
+    
+    <!-- TradingView Widget BEGIN -->
+    <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
+        {
+        "symbols": [
+        [
+            "BINANCE:BTCUSDT|1D"
+        ],
+        [
+            "BITSTAMP:ETHUSD|1D"
+        ],
+        [
+            "BINANCE:DOGEUSDT|1D"
+        ],
+        [
+            "BINANCE:XRPUSDT|1D"
+        ],
+        [
+            "BINANCE:SHIBUSDT|1D"
+        ],
+        [
+            "BINANCE:LTCUSDT|1D"
+        ]
+        ],
+        "chartOnly": false,
+        "width": 1200,
+        "height": 600,
+        "locale": "en",
+        "colorTheme": "dark",
+        "autosize": false,
+        "showVolume": false,
+        "showMA": false,
+        "hideDateRanges": false,
+        "hideMarketStatus": false,
+        "hideSymbolLogo": false,
+        "scalePosition": "right",
+        "scaleMode": "Normal",
+        "fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
+        "fontSize": "10",
+        "noTimeScale": false,
+        "valuesTracking": "1",
+        "changeMode": "price-and-percent",
+        "chartType": "candlesticks",
+        "maLineColor": "#2962FF",
+        "maLineWidth": 1,
+        "maLength": 9,
+        "gridLineColor": "rgba(0, 0, 0, 0.64)",
+        "backgroundColor": "rgba(0, 0, 0, 1)",
+        "lineType": 0,
+        "dateRanges": [
+        "1d|1",
+        "1m|30",
+        "3m|60",
+        "12m|1D",
+        "60m|1W",
+        "all|1M"
+        ],
+        "upColor": "#22ab94",
+        "downColor": "#f7525f",
+        "borderUpColor": "#22ab94",
+        "borderDownColor": "#f7525f",
+        "wickUpColor": "#22ab94",
+        "wickDownColor": "#f7525f"
+    }
+        </script>
+    </div>
+    <!-- TradingView Widget END -->
+</div>
+
+
+<%- include('partials/footer.ejs') %>
+    <!-- give path for js -->
+

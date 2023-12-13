@@ -122,6 +122,7 @@ model-viewer[ar-tracking="not-tracking"] > #ar-failure {
     overflow: hidden;
     position: absolute;
     bottom: 16px;
+    width: 200px;
   }
 
   .slides {
@@ -131,6 +132,7 @@ model-viewer[ar-tracking="not-tracking"] > #ar-failure {
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
+    width: 200px;
   }
 
   .slide {

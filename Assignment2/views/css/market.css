@@ -1,0 +1,23 @@
+.container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 80%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.container h1
+ {
+    font-size: 50px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 20px;
+ }
+
+ .tradingview-widget-container {
+   margin-top: 50px;
+ }
