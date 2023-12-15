@@ -64,81 +64,135 @@ function AuthRouter(database) {
         return callback(null, user);
     });
 
+    // line 27-61 are the routes of the pages for non-registered or non-sign in users
+    router.get('/', async (req, res) => {
+        const style = "css/home.css";
+        res.render('home', { title: 'Home', style: style } );
+    
+    });
+    
+    router.get('/purchase', async (re, res) => {
+        const style = "css/purchase.css";
+        const total_amount_buy = '';
+        res.render('purchase', {
+            title: 'Purchase', 
+            price: 'price', 
+            style: style, 
+            totalBuy: total_amount_buy
+        });
+    
+    });
+    
+    router.get('/market', async (re, res) => {
+        const style = "./css/market.css";
+        res.render('market', {title: 'Market', style: style});
+    });
+    
+    router.get('/learn', async (re, res) => {
+        const style = "./css/learn.css";
+        const coin = "";
+        const coin_explanation = "";
+        res.render('learn', {
+            title: 'Learn',
+            coin: coin, 
+            coin_explanation: coin_explanation, 
+            style: style
+        });
+    });
+
+    // router.get('/profile', async (re, res) => {
+    //     const style = "css/profile.css";
+    //     res.render('profile', {title: 'Dash Board', style: style});  
+    // });
+
     // Routes for Register and Login
     router.get('/register', (req, res) => {
-        const style = "../css/register.css";
-        res.render('auth/register', {errorMessage: null });
+        res.render('auth/register', {errorMessage: null});
     });
     
     router.get('/login', (req, res) => {
-        const style = "../css/login.css";
-        res.render('auth/login', { errorMessage: null, style: style });
+        res.render('auth/login', {errorMessage: null});
     });
 
     // this is check img url valid or not for register page.
     // i tried to use diff way from this sha 256, but its interesting when i test on mongodb collection.
     // Therefore i keep the password hash and salt in the database.
     router.post('/register', async (req, res) => {
-        const data = req.body;
+        let data = req.body;
+        
+        // Validate other form fields
+        if (Object.keys(data).length <= 0 || (!data.firstname || !data.lastname || !data.email || !data.password || !data.username)) {
+            res.render('auth/register', { errorMessage: "Please enter all fields" });
+            return;
+        }
+
+        // Validate the image URL
         const imageUrl = data.url;
+
+        // Check if the image URL is provided
+        if (!imageUrl) {
+            // If not provided, you may choose to handle it differently, e.g., proceed without checking the URL or display a message.
+            console.log("Image URL not provided");
+            data.url= '../assets/pics/2c80ydc.jpg'
+        } else {
             try {
-                
-                // Validate the image URL
                 const response = await fetch(imageUrl);
+
                 if (!response.ok) {
                     console.log("Image URL is invalid");
                     res.render('auth/register', { errorMessage: "There was an issue checking the URL" });
                     return;
                 }
-        
-                // Validate other form fields
-                if (Object.keys(data).length <= 0 || (!data.firstname || !data.lastname || !data.email || !data.password || !data.username)) {
-                    res.render('auth/register', { error: "Please enter all fields" });
-                    return;
-                }
-        
-                console.log(data);
-                const salt = crypto.randomBytes(16).toString('hex');
-                const hashedPassword = await new Promise((resolve, _) => {
-                    crypto.pbkdf2(data.password, salt, 310000, 32,'sha256', (_, hashedPassword) => {
-                        resolve(hashedPassword);
-                    });
-                });
-           
-                // i dont use ..data because i get familiar with this way below 
-                console.log(hashedPassword.toString('hex'));
-                let user = await database.collections.users.insertOne({
-                    ...data,
-                    password: hashedPassword.toString('hex'),
-                    salt: salt
-                });
-
-                console.log('User inserted:', user);
-
-                await new Promise((resolve, _) => {
-                    req.login({
-                        id: user.insertedId.toString(),
-                        username: data.username
-                    }, () => {
-                        console.log('User logged in:', req.user); // Log the user information
-                        resolve();
-                    });
-                });
-        
-                res.redirect('/');
             } catch (error) {
-                // Handle errors, for example, render an error page
-                console.error('Error during registration:', error);
-                return res.render('auth/register', { errorMessage: 'An error occurred during registration.' });
+                console.error("Error checking image URL:", error);
+                res.render('auth/register', { errorMessage: "There was an issue checking the URL" });
+                return;
             }
+        }
+
+        console.log(data);
+        // the input password will be reversed to hash password and salt by using crypto
+        const salt = crypto.randomBytes(16).toString('hex');
+        const hashedPassword = await new Promise((resolve, _) => {
+            crypto.pbkdf2(data.password, salt, 310000, 32,'sha256', (_, hashedPassword) => {
+                resolve(hashedPassword);
+            });
+        });
+    
+        //  '..data' will take all input data from user in the register page
+        console.log(hashedPassword.toString('hex'));
+        let user = await database.collections.users.insertOne({
+            ...data,
+            password: hashedPassword.toString('hex'),
+            salt: salt
+        });
+
+        // this block below is to keep the user login after register
+        console.log('User inserted:', user);
+        await new Promise((resolve, _) => {
+            req.login({
+                id: user.insertedId.toString(),
+                username: data.username
+            }, () => {
+                console.log('User logged in:', res.locals.user ); // Log the user information
+                resolve();
+            });
+        });
+        res.redirect('/');
     });
 
-    router.get('/', (req, res) => {
-        res.render('partials/navigation', { user: req.user });
-    });
-
+    // this post is to get action from login page. 
     router.post('/login', (req, res, next) => {
-        passport.authenticate('local', async(error, user) => {  // This is a function that we are calling on line where we are ending the brackets.
+        passport.authenticate('local', async(error, user) => {
+            // verify password and username
+            if (!user) {
+                // Authentication failed
+                console.error('Login failed:', error);
+                res.render('auth/login', { errorMessage: 'Incorrect username or password' });
+                return;
+            }
+            console.log('User logged in successfully');
+            // keep the user login after login
             await new Promise((resolve, _) => {
                 req.login({
                     id: user._id.toString(),
@@ -150,16 +204,19 @@ function AuthRouter(database) {
             res.redirect('/');
         })(req, res, next);
     });
-
+    
 
     // Logout Route
-    router.get('/logout', (req, res, next) => {
-        req.logout(function(error) {
+    router.get('/logout', (req, res) => {
+        req.logout((error) => {
             if (error) {
-                next(error);
-                return;
+                // Handle error
+                console.error('Logout failed:', error);
+                res.status(500).send('Logout failed');
+            } else {
+                // Redirect to the home page or any other desired page after logout
+                res.redirect('/');
             }
-            res.redirect('/');
         });
     });
 

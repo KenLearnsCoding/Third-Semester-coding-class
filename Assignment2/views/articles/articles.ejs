@@ -1,0 +1,37 @@
+<%- include('../partials/head.ejs', {title:"Learn Crypto", style: "../css/article.css"}) %>
+<%- include('../partials/header.ejs') %>
+
+<!-- create algorithm to access to the json file here -->
+
+
+<div class="container">
+    <div class="background">
+        <div class="content">
+            <h1>Read crypto <br> to acknowledge </h1>
+            <h2>Lets gather around with the market news now</h2>
+        </div>
+        <img src="/assets/pics/blockchain.png" alt="">
+    </div>
+    <div class="coin_infor">
+        <% articlesWithUsers.forEach(article => { %>
+            <div class="coin">
+                <!-- display author img -->
+                <div class="card">
+                    <img src="<%= article.author.url %>" alt="Author's Profile Picture">
+                    <!-- Print URL for debugging -->
+                    <!-- this url has the link in it, but it can be display somehow. 
+                         I took a look at the ccode challenge 7, but it didnt help. -->
+                    <!-- <p>URL: <%= article.author.url %></p> -->
+                </div>
+                <div class="what_about">
+                    <h2>Title: <%= article.title %></h2>
+                    <p>Author: <%= article.author.lastname + ' ' + article.author.firstname %></p>
+                    <button><a href="/articles/<%= article._id %>" class="link">Read</a></button>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>

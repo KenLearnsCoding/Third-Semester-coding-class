@@ -4,24 +4,43 @@
         <button id="confirmButton">Confirm</button>
     </div>
 </div> -->
+<% if (locals.user) { %>
+    <nav>
+        <img class="logo" src="../assets/pics/Moon-logos_black.png" alt="">
+        <ul>
+            <li><a href="/" class="link">Home</a></li>
+            <li><a href="/purchase" class="link">Purchase</a></li>
+            <li><a href="/market" class="link">Market</a></li>
+            <li><a href="/learn" class="link">Learn</a></li>
+            <li><a href="/article" class="link">Articles</a></li>
 
-<nav>
-    <img class="logo" src="../assets/pics/Moon-logos_black.png" alt="">
-    <ul>
-        <li><a href="/" class="link">Home</a></li>
-        <li><a href="/purchase" class="link">Purchase</a></li>
-        <li><a href="/market" class="link">Market</a></li>
-        <li><a href="/learn" class="link">Learn</a></li>
 
-    </ul>
-    <div class="sign_log">
-        <!-- instead use js dom, this sign_log has the express syntax
-             accomplish the appearance for this nav -->
-             <% if (locals.user) { %>
-                <a href="/profile" class="profile">Profile</a>
-            <% } else { %>
-                <a href="/login" class="login">Login</a>
-                <a href="/register" class="signup">Sign Up</a>
-            <% } %>
-    </div>
-</nav>
+        </ul>
+        <a href="/publicArticle" class="link">Write</a>
+        <div class="sign_log">
+            <!-- instead use js dom, this sign_log has the express syntax
+                accomplish the appearance for this nav -->
+            <a href="/profile" class="profile">Profile</a>
+        </div>
+    </nav>
+<% } else { %>
+    <nav>
+        <img class="logo" src="../assets/pics/Moon-logos_black.png" alt="">
+        <ul>
+            <li><a href="/" class="link">Home</a></li>
+            <li><a href="/purchase" class="link">Purchase</a></li>
+            <li><a href="/market" class="link">Market</a></li>
+            <li><a href="/learn" class="link">Learn</a></li>
+            <li><a href="/article" class="link">Articles</a></li>
+
+        </ul>
+
+        <div class="sign_log">
+            <!-- instead use js dom, this sign_log has the express syntax
+                accomplish the appearance for this nav -->
+
+            <a href="/login" class="login" id="signinLink">Login</a>
+            <a href="/register" class="signup" id="signupLink">Sign Up</a>
+        </div>
+    </nav>
+<% } %>

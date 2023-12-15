@@ -1,0 +1,22 @@
+<%- include('../partials/head.ejs', { title: "Edit Article", style: "../css/edit.css" }) %>
+<%- include('../partials/header.ejs') %>
+
+<div class="container">
+    <h1 class="title">Edit Article</h1>
+    <div class="form_edit">
+        <!-- Display an error message if there was an issue updating the article after submitting the form -->
+        <form action="/updateArticles/<%= article._id %>" method="post" class="editingArticle">
+            <% if (error) { %>
+                <div class="alert alert-danger" role="alert">
+                    <%= error %> 
+                </div>
+            <% } %>
+            <textarea type="text" id="headline" name="headline" placeholder="Headline" required><%= article.title %></textarea>
+            <textarea type="text" id="content" name="content" placeholder="Content" required><%= article.content %></textarea>
+        
+            <button class="btn">Update</button>
+        </form>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>

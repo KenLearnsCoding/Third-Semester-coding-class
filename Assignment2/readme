@@ -1,0 +1,39 @@
+I will leave here some notes for you to read.
+
+First of all, the user log information will be saved down here.
+
+First user:
+
+    username: Kenpi
+    password: n01404222
+
+Second user:
+
+    username: MMDD
+    password: 123
+
+Third user:
+
+Secondly, my code is messy and i want to read those files that are necessary: 
+
+-- server.js
+-- profile.ejs
+-- routes/articles.js and routes/auth.js
+-- files in articles folder
+-- files in auth folder
+
+
+Thirdly, while debugging, i forgot to import auth.js and article.js into both of themself. Therefore 
+the updateProfile route and delete route will be contained in the aritcle.js. This problem caused me headache so bad. 
+
+
+All the requirements in the assignment work, except the url pic from the users collection. I took a look at the code challenge 7, but it didnt work for some reasons. 
+
+The profile button will show up after login or register successfully. All articles belong to that user will be show up in the profile of user, and the user infor as well. 
+
+
+The folder structure is messed, i dont want to rearrange, because the code worked well, i dont want to spend for tiem to debug. 
+
+Everything in the files are commented. 
+
+Thank you. 

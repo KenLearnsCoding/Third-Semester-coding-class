@@ -1,0 +1,37 @@
+<%- include('../partials/head.ejs', { title: "Update Profile", style: "../css/updateProfile.css" }) %>
+<%- include('../partials/header.ejs') %>
+
+<div class="container">
+    <h1 class="title">Update Profile</h1>
+    <div class="form_update">
+        <!-- Display an error message if there was an issue updating the profile after submitting the form -->
+        <% if (error) { %>
+            <div class="alert alert-danger" role="alert">
+                <%= error %> 
+            </div>
+        <% } %>
+        <form action="/updateProfile" method="post" class="updatingProfile">
+            <label for="firstname">First Name:</label>
+            <input type="text" id="firstname" name="firstname" value="<%= user.firstname %>" required>
+            
+            <label for="lastname">Last Name:</label>
+            <input type="text" id="lastname" name="lastname" value="<%= user.lastname %>" required>
+
+            <label for="username">Username:</label>
+            <input type="text" id="lastname" name="username" value="<%= user.username %>" required>
+
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" value="<%= user.email %>" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" value="<%= user.password %>" required>
+
+            <label for="url">Profile Image URL:</label>
+            <input type="text" id="url" name="url" value="<%= user.url %>" required>
+
+            <button class="btn">Update Profile</button>
+        </form>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>

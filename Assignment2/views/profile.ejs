@@ -4,109 +4,54 @@
 
 <div class="container">
     <div class="sidebar">
-        <ul>
-            <li>
-                <a href="#">
-                    <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
-                    <span class="title">Dashboard</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="icon"><ion-icon name="planet-outline"></ion-icon></span>
-                    <span class="title">Setting</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="icon"><ion-icon name="albums-outline"></ion-icon></span>
-                    <span class="title">Post</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="icon"><ion-icon name="layers-outline"></ion-icon></span>
-                    <span class="title">Note</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" id="signOutButton">
-                    <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
-                    <span class="title" >Sign out</span>
-                </a>
-            </li>
-        </ul>
+        <img src="<%= user.url %>" alt="<%= user.firstname + ' ' + user.lastname %>" class="profile-image">
+        <p>Name: <%= user.firstname + ' ' + user.lastname %></span>
+        <p>Username: <%= user.username %></p>
+        <p>Email: <%= user.email %></p>
+        <p>Password: <%= user.password %></p>
+        <button class="bn2">
+            <a href="/updateProfile">
+                <span class="title">Edit</span>
+            </a>
+        </button>
+
+        <button class="bn2" onclick="confirmDelete()">
+            <a href="/deleteProfile">
+                <span class="title">Delete</span>
+            </a>
+        </button>
+        <button class="bn2">
+            <a href="/logout" id="signOutButton">
+                <span class="title" action="/logout">Sign out</span>
+            </a>
+        </button>
+        
+
     </div>
 
     <div class="portfolio">
-        <div class="card_top">
-            <div class="card_title">
-                <span class="title_name">PORTFOLIO VALUE</span>
-                <span>MY WALLET</span>
-            </div>
-            <div class="card">
-                <span class="title_name">Total balance</span>
-                <span class="total_value">CAD $1000</span>
-            </div>
-        </div>
-
-        <div class="total_title">
-            <span>Portfolio management</span>
-        </div>
-        <div class="coin_portfolio">
-            <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">Coin</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Amount</th>
-                    <th scope="col">Value</th>
-                  </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="col">Bitcoin</th>
-                        <td>CAD$ 61,000</td>
-                        <td>4,000 BITCOIN</td>
-                        <td>CAD$ 244 Mil</td>
-                    </tr>
-                    <tr>               
-                        <th scope="col">Ethereum</th>
-                        <td>CAD$ 3,070</td>
-                        <td>2,000 ETH</td>
-                        <td>CAD$ 6,140,000</td>
-            
-                    </tr>
-                    <tr>
-                        <th scope="col">DogeCoin</th>
-                        <td>CAD$ 1.22</td>
-                        <td>34,271,3 DOGE</td>
-                        <td>CAD$ 41,800</td>
-                        
-                    </tr>
-                    <tr>
-                        <th scope="col">Solona</th>
-                        <td>CAD$ 85.5</td>
-                        <td>4,000 SOL</td>
-                        <td>CAD$ 342,000</td>
-                    </tr>
-                    <tr>
-                        <th scope="col">ChainLink</th>
-                        <td>CAD$ 21.17</td>
-                        <td>13,000 LINK</td>
-                        <td>CAD$ 275,210</td>
-                </tbody>
-              </table>
-        </div>
-
-        <div class="order">
-            <span>OPEN ORDERS</span>
-            <div class="announcement">
-                <span>There are no open orders</span>
-            </div>
-        </div>
+        <h1>Welcome, <%= user.username.toUpperCase() %>!</h1>
+        <% if (articles && articles.length > 0) { %>
+            <h2>This Is Your Articles</h2>
+            <% articles.forEach(article => { %>
+                <div class="coin_portfolio">
+                    <h2>Title<%= article.title %></h2>
+                    <p><%= article.content %></p>
+                    <div class="bnt">
+                        <a href="/updateArticles/<%= article._id %>">
+                            <button class="bn1">Edit</button>
+                        </a>
+                        <a href="/deleteArticle/<%= article._id %>">
+                            <button class="bn1">Delete</button>
+                        </a>
+                    </div>
+                   
+                </div>
+            <% }); %>
+        <% } else { %>
+            <p>No articles found.</p>
+        <% } %>
     </div>
-
 </div>
     
 
@@ -122,8 +67,38 @@
 
         listItems.forEach((item) => {
             item.addEventListener('mousedown', setActiveLink);
-        });
+       
+         });
     });
+
+    const logoutButton = document.getElementById('signOutButton');
+    if (logoutButton) {
+        logoutButton.addEventListener('click', () => {
+        // Send a request to the server to log the user out
+        fetch('/logout', { method: 'GET' })
+            .then(response => {
+            if (response.ok) {
+                // Redirect to the home page or any other desired page after logout
+                window.location.href = '/';
+            } else {
+                console.error('Logout failed');
+            }
+            })
+            .catch(error => console.error('Error during logout:', error));
+        });
+    }
+
+    // this will be the prompt for you use to confirm the acc delete  /
+    function confirmDelete() {
+        const result = confirm("Are you sure you want to delete your profile?");
+        if (result) {
+            // If the user confirms, redirect to the deleteProfile route
+            window.location.href = "/";
+        } else {
+            // If the user cancels, do nothing or provide feedback if needed
+            console.log("Deletion canceled");
+        }
+    }
 </script>
 
 <%- include('partials/footer.ejs') %>

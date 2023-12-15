@@ -1,0 +1,19 @@
+
+<%- include('../partials/head.ejs', { title: "Article", style: "../css/single.css" }) %>
+<%- include('../partials/header.ejs') %>
+
+<div class="container">
+    <div class="article-details">
+        <h1><%= article.title %></h1>
+        <div class="author-details">
+            <h2>Author: <%= userInformation.firstname + ' ' + userInformation.lastname %></h2>
+            <img src="<%= userInformation.url %>" alt="Author's Profile Picture">
+        </div>
+        <p><%= article.content %></p>
+        <button><a href="/article" class="link">Return</a></button>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>
+
+

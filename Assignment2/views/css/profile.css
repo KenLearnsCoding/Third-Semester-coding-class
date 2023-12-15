@@ -16,56 +16,67 @@
     width: 100%;
     display: flex;
     margin-bottom: 50px;
+    justify-content: space-between;
 }
 
+.container img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 10px;
+}
+
+
+
+
 .sidebar {
-    height: 350px;
-    width: 250px;
+    height: auto;
+    width: 30%;
     z-index: 1;
     background-color: var(--dark-purple);
     overflow-x: hidden;
-    padding-top: 20px;
+    padding: 30px;
     border-radius: 10px;
     transition: 0.2s;
-    margin-top: 10px;
-}
-
-.sidebar ul {
-    list-style-type: none;
-    position: absolute;
-    width: 30%;
-}
-
-.sidebar ul li {
-    font-size: 20px;
-    width: 250px;
-    margin-left: 20px;
-    list-style: none;
-    border-top-left-radius: 50px;
-    border-bottom-left-radius: 50px;
-}
-
-.sidebar ul li.focused a {
-    background: var(--dark-orange);
-    color: var(--white);
-    cursor: pointer;
-}
-
-.sidebar ul li a {
-    position: relative;
-    display: block;
-    width: 100%;
+    margin: 10px;
     display: flex;
-    text-decoration: none;
-    color: var(--white);
-    border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px;
+    flex-direction: column;
+    justify-content: center;
+    align-items:safe;
 }
 
-.sidebar ul li:hover a,
-.sidebar ul li.hovered a {
-    color: #080a0b;
+.sidebar span {
+    margin: 20px;
+    color: white;
 }
+
+.sidebar p {
+    margin: 20px;
+    color: white;
+    word-wrap: break-word; 
+}
+
+.bn2 {
+    display: flex;
+    height: 50px;
+    width: 150px;
+    border-radius: 10px;
+    background-color: #68c49f;
+    border: 0.16em solid rgba(255, 255, 255, 0);
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding: 2px;
+    transition: all 0.2s;
+    margin: 5px;
+    padding: 10px;
+    color: white;
+}
+
+.bn2:hover {
+    border-color: rgb(255, 255, 255);
+}
+
 
 .sidebar ul li a .icon {
     position: relative;
@@ -119,131 +130,56 @@
     border-radius: 10px;
     transition: 0.2s;
     margin: 10px auto;
-    background-color: #2f2f2f;
+    background-color: #ffffff;
     padding: 40px;
+    justify-content: center;
+    align-items: center;
 }
-
-.card_top {
-    display: flex;
-    flex-direction: column;
-    height: 200px;
-    width: 350px;
-}
-
-.card_title {
-    font-size: 16px;
-    color: var(--white);
-    justify-content: space-between;
-    display: flex;
-}
-
-.card {
-    background-color: var(--grey);
-    padding: 10px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    width: 350px;
-    height: 100px;
-    border-radius: 5px;
-    transition: 0.2s;
-    margin-top: 5px;
-}
-
-.card span {
-    display: block;
-    margin-bottom: 8px;
-}
-
-.title_name {
-    color: #9d9a9a;
-    font-size: 16px;
-}
-
-.total_value {
-    text-align: center;
-    font-size: 20px;
-    font-weight: 800;
-}
-
 
 .coin_portfolio {
     display: flex;
+    flex-direction: column;
     margin-top: 10px;
     height: auto;
-    width: auto;
+    width: 100%;
+    padding: 10px;
     border: #080a0b 1px solid;
     border-radius: 10px;
-    background-color: #111;
-}
-
-.coin_portfolio .table {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    overflow-y: scroll;
-    padding: 20px;
-}
-
-.coin_portfolio thead {
-    display: flex;
-    justify-content: space-between;
-}
-
-.coin_portfolio .table tr {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    height: 40px;
-    color: white;
-    align-items: center;
-}
-
-.coin_portfolio .table thead tr th {
-    display: flex;
-    color: white;
-    border-bottom: 2px solid #d8765b;
-    border-top: 2px solid  #d8765b;
-    align-items: center;
-    text-align: center;
-    width: 150px;
-    
-}
-
-.coin_portfolio .table tbody tr th,
-.coin_portfolio .table tbody tr td {
-    display: flex;
-    align-items: center;
-    text-align: left;
-    width: 150px;
-    justify-content: space-between;
-}
-
-.order {
-    display: flex;
-    flex-direction: column;
-    margin-top: 10px;
-    height: 300px;
-    width: auto;
-    border: #080a0b 1px solid;
-    border-radius: 10px;
-    background-color: #111;
-    color: white;
-    padding: 30px;
-}
-
-.announcement {
-    display: flex;
-    flex-direction: column;
-    margin-top: 10px;
-    height: 300px;
-    width: auto;
-    border: #e2e2e2 1px solid;
-    border-radius: 10px;
-    background-color: #111;
-    color: white;
-    padding: 30px;
-    text-align: center;
+    background-color: #fffdfd;
     justify-content: center;
+    text-align: center;
+    align-items: center;
 }
+
+.coin_portfolio h2, p{
+    margin: 20px;
+}
+
+.bnt {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.bn1 {
+    display: inline-block;
+    padding: 0.6em 1.7em;
+    border: 0.1em solid #090909;
+    margin: 0 0.3em 0.3em 0;
+    border-radius: 0.12em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    color: #000000;
+    text-align: center;
+    transition: all 0.2s;
+    width: 100px;
+  }
+  
+  .bn1:hover {
+    color: #ffffff;
+    background-color: #0a0a0a;
+  }

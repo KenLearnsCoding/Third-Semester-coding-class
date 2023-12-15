@@ -1,0 +1,91 @@
+.container {
+    min-height: 130vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.title {
+    color: white;
+    font-size: 30px;
+}
+
+.form_edit {
+    width: 60%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #2B3139;
+    border-radius: 10px;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #ffffff;
+    margin-top: 20px;
+}
+
+input {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 10px;
+    border: 1px solid #ffffff;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    transition: height 0.3s;
+    font-size: 20px;
+    outline: none;
+    text-align: center;
+}
+.editingArticle {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#headline, #content {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 10px;
+    border: 1px solid #ffffff;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    transition: height 0.3s;
+    font-size: 40px;
+    outline: none;
+}
+
+#headline {
+    resize: none;
+    min-height: 40px;
+}
+
+#content {
+    font-size: 25px;
+    height: 500px;
+    resize: none;
+    overflow-y: auto;
+}
+
+.btn {
+    width: 30%;
+    height: 40px;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    background-color: #2B3139;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-top: 10px;
+    pointer-events: cursor;
+    justify-content: center;
+    text-align: center;
+}
+
+.btn:hover {
+    border-color: rgb(255, 255, 255);
+}

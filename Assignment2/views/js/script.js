@@ -54,44 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    const connectWalletButton = document.getElementById('connect_wallet1');
-    const dashboardButton = document.getElementById('connect_wallet2');
-    const walletConnectSection = document.querySelector('.wallet_connect');
-    const confirmButton = document.getElementById('confirmButton');
     const signOutButton = document.getElementById('signOutButton');
-
-    // Check if the user is logged in
-    const isLoggedIn = localStorage.getItem('isLoggedIn');
-
-    // Show/hide the "Dashboard" and "Connect Wallet" buttons based on login status
-    if (isLoggedIn) {
-        dashboardButton.style.display = 'flex';
-        connectWalletButton.style.display = 'none';
-    } else {
-        dashboardButton.style.display = 'none';
-        connectWalletButton.style.display = 'flex';
-    }
-
-    connectWalletButton.addEventListener('click', () => {
-        // Show the wallet connect section
-        walletConnectSection.style.display = 'flex';
-
-    });
-
-    confirmButton.addEventListener('click', () => {
-        // Hide the wallet connect section
-        walletConnectSection.style.display = 'none';
-        connectWalletButton.style.display = 'none';
-
-        // Show the "Dashboard" button
-        dashboardButton.style.display = 'flex';
-
-        window.location.href = 'dashboard';
-
-        // Set the login status in local storage
-        localStorage.setItem('isLoggedIn', 'true');
-    });
-
     signOutButton.addEventListener('click', (event) => {
         // Prevent the default behavior of the link (assuming it's a real link)
         event.preventDefault();
@@ -114,5 +77,9 @@ document.addEventListener('DOMContentLoaded', function () {
         // After logout, redirect to the home page or any other appropriate page
         window.location.href = '/';
     }
-    
+});
+
+document.getElementById('headline').addEventListener('input', function () {
+    this.style.height = 'auto';
+    this.style.height = (this.scrollHeight) + 'px';
 });

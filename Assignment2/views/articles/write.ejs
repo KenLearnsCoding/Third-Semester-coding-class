@@ -1,0 +1,22 @@
+<%- include('../partials/head.ejs', { title: "Login", style: "../css/write.css" }) %>
+<%- include('../partials/header.ejs') %>
+
+<div class="container">
+    <h1 class="title">Write Article</h1>
+    <div class="form_login">
+        <!-- Display an error message if there was an issue logging in the user after submitting the form -->
+        <form action="/publicArticle" method="post" class="creatingArticle">
+            <% if (error) { %>
+                <div class="alert alert-danger" role="alert">
+                    <%= error %> 
+                </div>
+            <% } %>
+            <textarea type="text" id="headline" name="title" placeholder="Headline" required></textarea>
+            <textarea type="text" id="content" name="content" placeholder="Content" required></textarea>
+        
+            <button class="btn">public</button>
+        </form>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>
